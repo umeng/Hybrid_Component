@@ -25,9 +25,7 @@ static UMAnalyticsModule *umengHyhrid = nil;
         NSDictionary *dic = [self jsonToDictionary:str];
         NSString *functionName = [dic objectForKey:@"functionName"];
         NSArray *args = [dic objectForKey:@"arguments"];
-        if ([functionName isEqualToString:@"getDeviceId"]) {
-            [umengHyhrid getDeviceId:args webView:webView];
-        } else {
+       
             SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@:", functionName]);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -35,7 +33,7 @@ static UMAnalyticsModule *umengHyhrid = nil;
                 [umengHyhrid performSelector:selector withObject:args];
             }
 #pragma clang diagnostic pop
-        }
+        
         return YES;
     }
     
