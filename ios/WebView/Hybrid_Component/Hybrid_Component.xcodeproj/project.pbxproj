@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63187B321F7A0501004FC6B4 /* UMPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63187B311F7A0501004FC6B4 /* UMPush.framework */; };
 		63C071F51F79068000B0D795 /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C071F41F79068000B0D795 /* UMShareModule.m */; };
 		63C072401F7906D500B0D795 /* libSocialEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072041F7906D400B0D795 /* libSocialEmail.a */; };
 		63C072411F7906D500B0D795 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072071F7906D400B0D795 /* Bolts.framework */; };
@@ -35,6 +36,7 @@
 		63C072581F7906D500B0D795 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63C0723C1F7906D400B0D795 /* UMSocialSDKPromptResources.bundle */; };
 		63C072591F7906D500B0D795 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63C0723E1F7906D400B0D795 /* UMSocialSDKResources.bundle */; };
 		63C0725A1F7906D500B0D795 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C0723F1F7906D400B0D795 /* UShareUI.framework */; };
+		63C0725D1F7A043D00B0D795 /* UMPushModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0725B1F7A043D00B0D795 /* UMPushModule.m */; };
 		83BE8F061F78E16E00969EA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F051F78E16E00969EA1 /* AppDelegate.m */; };
 		83BE8F091F78E16E00969EA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F081F78E16E00969EA1 /* ViewController.m */; };
 		83BE8F0C1F78E16E00969EA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BE8F0A1F78E16E00969EA1 /* Main.storyboard */; };
@@ -74,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63187B311F7A0501004FC6B4 /* UMPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMPush.framework; sourceTree = "<group>"; };
 		63C071F31F79068000B0D795 /* UMShareModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareModule.h; sourceTree = "<group>"; };
 		63C071F41F79068000B0D795 /* UMShareModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareModule.m; sourceTree = "<group>"; };
 		63C072041F7906D400B0D795 /* libSocialEmail.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialEmail.a; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 		63C0723C1F7906D400B0D795 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
 		63C0723E1F7906D400B0D795 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		63C0723F1F7906D400B0D795 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		63C0725B1F7A043D00B0D795 /* UMPushModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMPushModule.m; sourceTree = "<group>"; };
+		63C0725C1F7A043D00B0D795 /* UMPushModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
 		83BE8F011F78E16D00969EA1 /* Hybrid_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hybrid_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BE8F041F78E16D00969EA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83BE8F051F78E16E00969EA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -174,6 +179,7 @@
 				83BE8F4C1F78F6D700969EA1 /* libsqlite3.tbd in Frameworks */,
 				63C072481F7906D500B0D795 /* TencentOpenAPI.framework in Frameworks */,
 				83BE8F421F78EF4600969EA1 /* UMAnalytics.framework in Frameworks */,
+				63187B321F7A0501004FC6B4 /* UMPush.framework in Frameworks */,
 				63C072451F7906D500B0D795 /* FBSDKShareKit.framework in Frameworks */,
 				63C0724D1F7906D500B0D795 /* libSocialSMS.a in Frameworks */,
 				83BE8F431F78EF4600969EA1 /* UMCommon.framework in Frameworks */,
@@ -440,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				63C072011F7906D400B0D795 /* UMShare */,
+				63187B311F7A0501004FC6B4 /* UMPush.framework */,
 				83BE8F401F78EF4600969EA1 /* UMAnalytics.framework */,
 				83BE8F411F78EF4600969EA1 /* UMCommon.framework */,
 			);
@@ -454,6 +461,8 @@
 				83BE8F461F78EF6700969EA1 /* UMAnalyticsModule.m */,
 				63C071F31F79068000B0D795 /* UMShareModule.h */,
 				63C071F41F79068000B0D795 /* UMShareModule.m */,
+				63C0725C1F7A043D00B0D795 /* UMPushModule.h */,
+				63C0725B1F7A043D00B0D795 /* UMPushModule.m */,
 			);
 			path = UMHybridBridge;
 			sourceTree = "<group>";
@@ -614,6 +623,7 @@
 				63C071F51F79068000B0D795 /* UMShareModule.m in Sources */,
 				83BE8F091F78E16E00969EA1 /* ViewController.m in Sources */,
 				83BE8F141F78E16E00969EA1 /* main.m in Sources */,
+				63C0725D1F7A043D00B0D795 /* UMPushModule.m in Sources */,
 				83BE8F471F78EF6700969EA1 /* UMAnalyticsModule.m in Sources */,
 				83BE8F061F78E16E00969EA1 /* AppDelegate.m in Sources */,
 			);
@@ -790,6 +800,7 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialUI",
 				);
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -828,6 +839,7 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialUI",
 				);
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
