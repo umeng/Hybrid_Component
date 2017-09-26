@@ -17,7 +17,7 @@ function exec(funName, args) {
         arguments : args
     };
     var jsonStr = JSON.stringify(commend);
-    var url = "umeng:" + jsonStr;
+    var url = "umanalytics:" + jsonStr;
     loadURL(url);
 };
 

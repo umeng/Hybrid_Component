@@ -10,11 +10,11 @@
 static UMAnalyticsModule *umengHyhrid = nil;
 
 + (BOOL)execute:(NSString *)parameters webView:(WKWebView *)webView {
-    if ([parameters hasPrefix:@"umeng"]) {
+    if ([parameters hasPrefix:@"umanalytics"]) {
         if (nil == umengHyhrid) {
             umengHyhrid = [[UMAnalyticsModule alloc] init];
         }
-        NSString *str = [parameters substringFromIndex:6];
+        NSString *str = [parameters substringFromIndex:12];
         NSDictionary *dic = [self jsonToDictionary:str];
         NSString *functionName = [dic objectForKey:@"functionName"];
         NSArray *args = [dic objectForKey:@"arguments"];
