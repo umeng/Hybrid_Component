@@ -15,11 +15,11 @@ static UMPushModule *umengHyhrid = nil;
 
 + (BOOL)execute:(NSString *)parameters webView:(UIWebView *)webView {
     NSString *prefix = @"umpush";
-    if ([parameters hasPrefix:@"umpush"]) {
+    if ([parameters hasPrefix:prefix]) {
         if (nil == umengHyhrid) {
             umengHyhrid = [[UMPushModule alloc] init];
         }
-        NSString *str = [parameters substringFromIndex:6];
+        NSString *str = [parameters substringFromIndex:prefix.length + 1];
         NSDictionary *dic = [self jsonToDictionary:str];
         NSString *functionName = [dic objectForKey:@"functionName"];
         NSArray *args = [dic objectForKey:@"arguments"];

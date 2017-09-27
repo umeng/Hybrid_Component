@@ -16,11 +16,11 @@ static UMShareModule *umengHyhrid = nil;
 
 + (BOOL)execute:(NSString *)parameters webView:(UIWebView *)webView {
     NSString *prefix = @"umshare";
-    if ([parameters hasPrefix:@"umshare"]) {
+    if ([parameters hasPrefix:prefix]) {
         if (nil == umengHyhrid) {
             umengHyhrid = [[UMShareModule alloc] init];
         }
-        NSString *str = [parameters substringFromIndex:6];
+        NSString *str = [parameters substringFromIndex:prefix.length + 1];
         NSDictionary *dic = [self jsonToDictionary:str];
         NSString *functionName = [dic objectForKey:@"functionName"];
         NSArray *args = [dic objectForKey:@"arguments"];
