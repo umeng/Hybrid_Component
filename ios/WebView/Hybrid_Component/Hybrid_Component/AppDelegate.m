@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <UMCommon/UMCommon.h>
 #import <UMPush/UMessage.h>
+#import <UMShare/UMShare.h>
 #import <UMAnalytics/MobClick.h>
 #import "UMAnalyticsModule.h"
 @interface AppDelegate ()

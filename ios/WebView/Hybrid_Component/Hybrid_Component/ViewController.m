@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <UMAnalytics/MobClick.h>
 #import "UMAnalyticsModule.h"
+#import "UMShareModule.h"
+#import "UMPushModule.h"
 @interface ViewController () <UIWebViewDelegate>
 
 @end
@@ -51,6 +53,10 @@
     NSString * url = [[request URL] absoluteString];
     NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if ([UMAnalyticsModule execute:parameters webView:webView]) {
+        return NO;
+    } else if ([UMPushModule execute:parameters webView:webView]) {
+        return NO;
+    } else if ([UMShareModule execute:parameters webView:webView]) {
         return NO;
     }
     return YES;

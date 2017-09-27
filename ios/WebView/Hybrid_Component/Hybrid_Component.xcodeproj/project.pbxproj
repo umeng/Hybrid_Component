@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		63187B321F7A0501004FC6B4 /* UMPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63187B311F7A0501004FC6B4 /* UMPush.framework */; };
+		633919971F7B3FEF00CFFCA0 /* UMShare.js in Resources */ = {isa = PBXBuildFile; fileRef = 633919961F7B3FEF00CFFCA0 /* UMShare.js */; };
+		633919991F7B400100CFFCA0 /* UMPush.js in Resources */ = {isa = PBXBuildFile; fileRef = 633919981F7B400100CFFCA0 /* UMPush.js */; };
 		63C071F51F79068000B0D795 /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C071F41F79068000B0D795 /* UMShareModule.m */; };
 		63C072401F7906D500B0D795 /* libSocialEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072041F7906D400B0D795 /* libSocialEmail.a */; };
 		63C072411F7906D500B0D795 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072071F7906D400B0D795 /* Bolts.framework */; };
@@ -77,6 +79,8 @@
 
 /* Begin PBXFileReference section */
 		63187B311F7A0501004FC6B4 /* UMPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMPush.framework; sourceTree = "<group>"; };
+		633919961F7B3FEF00CFFCA0 /* UMShare.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UMShare.js; sourceTree = "<group>"; };
+		633919981F7B400100CFFCA0 /* UMPush.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UMPush.js; sourceTree = "<group>"; };
 		63C071F31F79068000B0D795 /* UMShareModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareModule.h; sourceTree = "<group>"; };
 		63C071F41F79068000B0D795 /* UMShareModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareModule.m; sourceTree = "<group>"; };
 		63C072041F7906D400B0D795 /* libSocialEmail.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialEmail.a; sourceTree = "<group>"; };
@@ -459,8 +463,10 @@
 				83BE8F481F78F6BC00969EA1 /* UMAnalytics.js */,
 				83BE8F451F78EF6700969EA1 /* UMAnalyticsModule.h */,
 				83BE8F461F78EF6700969EA1 /* UMAnalyticsModule.m */,
+				633919961F7B3FEF00CFFCA0 /* UMShare.js */,
 				63C071F31F79068000B0D795 /* UMShareModule.h */,
 				63C071F41F79068000B0D795 /* UMShareModule.m */,
+				633919981F7B400100CFFCA0 /* UMPush.js */,
 				63C0725C1F7A043D00B0D795 /* UMPushModule.h */,
 				63C0725B1F7A043D00B0D795 /* UMPushModule.m */,
 			);
@@ -585,11 +591,13 @@
 			files = (
 				83BE8F3C1F78E2A800969EA1 /* index.html in Resources */,
 				83BE8F111F78E16E00969EA1 /* LaunchScreen.storyboard in Resources */,
+				633919971F7B3FEF00CFFCA0 /* UMShare.js in Resources */,
 				63C072541F7906D500B0D795 /* README.txt in Resources */,
 				83BE8F3B1F78E2A800969EA1 /* analytics.html in Resources */,
 				83BE8F491F78F6BC00969EA1 /* UMAnalytics.js in Resources */,
 				83BE8F0E1F78E16E00969EA1 /* Assets.xcassets in Resources */,
 				83BE8F3D1F78E2A800969EA1 /* push.html in Resources */,
+				633919991F7B400100CFFCA0 /* UMPush.js in Resources */,
 				63C072581F7906D500B0D795 /* UMSocialSDKPromptResources.bundle in Resources */,
 				63C072491F7906D500B0D795 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				63C0724C1F7906D500B0D795 /* WeiboSDK.bundle in Resources */,
