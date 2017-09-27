@@ -10,6 +10,11 @@
 		63187B321F7A0501004FC6B4 /* UMPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63187B311F7A0501004FC6B4 /* UMPush.framework */; };
 		633919971F7B3FEF00CFFCA0 /* UMShare.js in Resources */ = {isa = PBXBuildFile; fileRef = 633919961F7B3FEF00CFFCA0 /* UMShare.js */; };
 		633919991F7B400100CFFCA0 /* UMPush.js in Resources */ = {isa = PBXBuildFile; fileRef = 633919981F7B400100CFFCA0 /* UMPush.js */; };
+		633919AD1F7B421E00CFFCA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919AC1F7B421E00CFFCA0 /* ImageIO.framework */; };
+		633919AF1F7B422B00CFFCA0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919AE1F7B422B00CFFCA0 /* libc++.tbd */; };
+		633919B11F7B423200CFFCA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B01F7B423200CFFCA0 /* SystemConfiguration.framework */; };
+		633919B31F7B424700CFFCA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B21F7B424700CFFCA0 /* CoreData.framework */; };
+		633919B51F7B425400CFFCA0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B41F7B425400CFFCA0 /* MessageUI.framework */; };
 		63C071F51F79068000B0D795 /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C071F41F79068000B0D795 /* UMShareModule.m */; };
 		63C072401F7906D500B0D795 /* libSocialEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072041F7906D400B0D795 /* libSocialEmail.a */; };
 		63C072411F7906D500B0D795 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072071F7906D400B0D795 /* Bolts.framework */; };
@@ -81,6 +86,11 @@
 		63187B311F7A0501004FC6B4 /* UMPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMPush.framework; sourceTree = "<group>"; };
 		633919961F7B3FEF00CFFCA0 /* UMShare.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UMShare.js; sourceTree = "<group>"; };
 		633919981F7B400100CFFCA0 /* UMPush.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UMPush.js; sourceTree = "<group>"; };
+		633919AC1F7B421E00CFFCA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		633919AE1F7B422B00CFFCA0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		633919B01F7B423200CFFCA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		633919B21F7B424700CFFCA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		633919B41F7B425400CFFCA0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		63C071F31F79068000B0D795 /* UMShareModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareModule.h; sourceTree = "<group>"; };
 		63C071F41F79068000B0D795 /* UMShareModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareModule.m; sourceTree = "<group>"; };
 		63C072041F7906D400B0D795 /* libSocialEmail.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialEmail.a; sourceTree = "<group>"; };
@@ -169,6 +179,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633919B51F7B425400CFFCA0 /* MessageUI.framework in Frameworks */,
+				633919B31F7B424700CFFCA0 /* CoreData.framework in Frameworks */,
+				633919B11F7B423200CFFCA0 /* SystemConfiguration.framework in Frameworks */,
+				633919AF1F7B422B00CFFCA0 /* libc++.tbd in Frameworks */,
+				633919AD1F7B421E00CFFCA0 /* ImageIO.framework in Frameworks */,
 				63C072521F7906D500B0D795 /* libSocialWeChat.a in Frameworks */,
 				83BE8F501F78F6E100969EA1 /* CoreTelephony.framework in Frameworks */,
 				83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */,
@@ -476,6 +491,11 @@
 		83BE8F4A1F78F6D700969EA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				633919B41F7B425400CFFCA0 /* MessageUI.framework */,
+				633919B21F7B424700CFFCA0 /* CoreData.framework */,
+				633919B01F7B423200CFFCA0 /* SystemConfiguration.framework */,
+				633919AE1F7B422B00CFFCA0 /* libc++.tbd */,
+				633919AC1F7B421E00CFFCA0 /* ImageIO.framework */,
 				83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */,
 				83BE8F4D1F78F6DC00969EA1 /* libz.tbd */,
 				83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */,

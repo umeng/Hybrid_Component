@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		633919BB1F7B426E00CFFCA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919BA1F7B426E00CFFCA0 /* SystemConfiguration.framework */; };
+		633919BD1F7B427800CFFCA0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919BC1F7B427700CFFCA0 /* ImageIO.framework */; };
+		633919BF1F7B427C00CFFCA0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919BE1F7B427C00CFFCA0 /* MessageUI.framework */; };
+		633919C11F7B428400CFFCA0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919C01F7B428400CFFCA0 /* libc++.tbd */; };
+		63391A431F7B44AD00CFFCA0 /* UMPush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63391A021F7B441100CFFCA0 /* UMPush.framework */; };
 		83BE8F061F78E16E00969EA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F051F78E16E00969EA1 /* AppDelegate.m */; };
 		83BE8F091F78E16E00969EA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F081F78E16E00969EA1 /* ViewController.m */; };
 		83BE8F0C1F78E16E00969EA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BE8F0A1F78E16E00969EA1 /* Main.storyboard */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		633919BA1F7B426E00CFFCA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		633919BC1F7B427700CFFCA0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		633919BE1F7B427C00CFFCA0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		633919C01F7B428400CFFCA0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		63391A021F7B441100CFFCA0 /* UMPush.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMPush.framework; path = ../../../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/UMPush.framework; sourceTree = "<group>"; };
 		83BE8F011F78E16D00969EA1 /* Hybrid_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hybrid_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BE8F041F78E16D00969EA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83BE8F051F78E16E00969EA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -81,7 +91,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63391A431F7B44AD00CFFCA0 /* UMPush.framework in Frameworks */,
+				633919C11F7B428400CFFCA0 /* libc++.tbd in Frameworks */,
+				633919BF1F7B427C00CFFCA0 /* MessageUI.framework in Frameworks */,
+				633919BD1F7B427800CFFCA0 /* ImageIO.framework in Frameworks */,
 				83BE8F501F78F6E100969EA1 /* CoreTelephony.framework in Frameworks */,
+				633919BB1F7B426E00CFFCA0 /* SystemConfiguration.framework in Frameworks */,
 				83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */,
 				83BE8F4C1F78F6D700969EA1 /* libsqlite3.tbd in Frameworks */,
 				83BE8F421F78EF4600969EA1 /* UMAnalytics.framework in Frameworks */,
@@ -178,6 +193,7 @@
 		83BE8F3F1F78EF4600969EA1 /* UMComponents */ = {
 			isa = PBXGroup;
 			children = (
+				63391A021F7B441100CFFCA0 /* UMPush.framework */,
 				83BE8F401F78EF4600969EA1 /* UMAnalytics.framework */,
 				83BE8F411F78EF4600969EA1 /* UMCommon.framework */,
 			);
@@ -197,6 +213,10 @@
 		83BE8F4A1F78F6D700969EA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				633919C01F7B428400CFFCA0 /* libc++.tbd */,
+				633919BE1F7B427C00CFFCA0 /* MessageUI.framework */,
+				633919BC1F7B427700CFFCA0 /* ImageIO.framework */,
+				633919BA1F7B426E00CFFCA0 /* SystemConfiguration.framework */,
 				83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */,
 				83BE8F4D1F78F6DC00969EA1 /* libz.tbd */,
 				83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */,
@@ -271,7 +291,7 @@
 				TargetAttributes = {
 					83BE8F001F78E16D00969EA1 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					83BE8F181F78E16E00969EA1 = {
 						CreatedOnToolsVersion = 9.0;
@@ -508,15 +528,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents",
 				);
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umeng.UMAnalytics.Hybrid-Component";
+				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -525,15 +548,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents",
 				);
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.umeng.UMAnalytics.Hybrid-Component";
+				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
