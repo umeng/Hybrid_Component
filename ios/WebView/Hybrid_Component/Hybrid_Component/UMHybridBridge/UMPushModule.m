@@ -14,6 +14,7 @@
 static UMPushModule *umengHyhrid = nil;
 
 + (BOOL)execute:(NSString *)parameters webView:(UIWebView *)webView {
+    NSString *prefix = @"umpush";
     if ([parameters hasPrefix:@"umpush"]) {
         if (nil == umengHyhrid) {
             umengHyhrid = [[UMPushModule alloc] init];

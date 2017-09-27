@@ -15,6 +15,7 @@
 static UMShareModule *umengHyhrid = nil;
 
 + (BOOL)execute:(NSString *)parameters webView:(UIWebView *)webView {
+    NSString *prefix = @"umshare";
     if ([parameters hasPrefix:@"umshare"]) {
         if (nil == umengHyhrid) {
             umengHyhrid = [[UMShareModule alloc] init];
