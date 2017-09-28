@@ -27,6 +27,13 @@ static UMShareModule *umengHyhrid = nil;
         if ([functionName isEqualToString:@"getDeviceId"]) {
             [umengHyhrid getDeviceId:args webView:webView];
         } else {
+//            if ([functionName isEqualToString:@"auth"]) {
+//                [umengHyhrid getUserInfo:args webView:webView]
+//            } else if ([functionName isEqualToString:@"share"]) {
+//
+//            }else if ([functionName isEqualToString:@"shareboard"]) {
+//
+//            }
             SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@:webView:", functionName]);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
@@ -133,18 +140,62 @@ static UMShareModule *umengHyhrid = nil;
     
 }
 
-- (void)shareWithPlatform:(UMSocialPlatformType)platform text:(NSString *)text icon:(NSString *)icon link:(NSString *)link title:(NSString *)title platform:(NSInteger)platform completion:(id)completion
+- (void)share:(NSArray *)args webView:(UIWebView *)webView
 {
+    if (args.count != 6) {
+        return;
+    }
+    
+    UMSocialPlatformType platform = [args[0] integerValue];
+    NSString *text = args[1];
+    NSString *icon = args[2];
+    NSString *link = args[3];
+    NSString *title = args[4];
+    
+    NSString *callback = args[5];
+    
     UMSocialPlatformType plf = [self platformType:platform];
     if (plf == UMSocialPlatformType_UnKnown) {
-        if (completion) {
-            //      completion(@[@(UMSocialPlatformType_UnKnown), @"invalid platform"]);
-            return;
-        }
+        [self handleResult:-1 message:@"invalid platform" result:nil callbackFunction:callback webView:webView];
+        return;
     }
     
     [self shareWithText:text icon:icon link:link title:title platform:plf completion:^(id result, NSError *error) {
-        if (completion) {
+        if (error) {
+            NSString *msg = error.userInfo[@"NSLocalizedFailureReason"];
+            if (!msg) {
+                msg = error.userInfo[@"message"];
+            }if (!msg) {
+                msg = @"share failed";
+            }
+            [self handleResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
+            
+        } else {
+            [self handleResult:0 message:nil result:nil callbackFunction:callback webView:webView];
+        }
+    }];
+    
+}
+
+- (void)shareBoard:(NSArray *)args webView:(UIWebView *)webView
+{
+    NSArray *platforms = args[0];
+    NSString *text = args[1];
+    NSString *icon = args[2];
+    NSString *link = args[3];
+    NSString *title = args[4];
+    
+    NSString *callback = args[5];
+    
+    NSMutableArray *plfs = [NSMutableArray array];
+      for (NSNumber *plf in platforms) {
+        [plfs addObject:@([self platformType:plf.integerValue])];
+      }
+    if (plfs.count > 0) {
+        [UMSocialUIManager setPreDefinePlatforms:plfs];
+    }
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        [self shareWithText:text icon:icon link:link title:title platform:platformType completion:^(id result, NSError *error) {
             if (error) {
                 NSString *msg = error.userInfo[@"NSLocalizedFailureReason"];
                 if (!msg) {
@@ -152,40 +203,10 @@ static UMShareModule *umengHyhrid = nil;
                 }if (!msg) {
                     msg = @"share failed";
                 }
+                [self handleResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
                 
-                //        completion(@[@(error.code), msg]);
             } else {
-                //        completion(@[@0, @"share success"]);
-            }
-        }
-    }];
-    
-}
-
-- (void)shareBoard:(UMSocialPlatformType)platform text:(NSString *)text icon:(NSString *)icon link:(NSString *)link title:(NSString *)title platform:(NSInteger)platform completion:(id)completion
-{
-    NSMutableArray *plfs = [NSMutableArray array];
-    //  for (NSNumber *plf in platforms) {
-    //    [plfs addObject:@([self platformType:plf.integerValue])];
-    //  }
-    if (plfs.count > 0) {
-        [UMSocialUIManager setPreDefinePlatforms:plfs];
-    }
-    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-        [self shareWithText:text icon:icon link:link title:title platform:platformType completion:^(id result, NSError *error) {
-            if (completion) {
-                if (error) {
-                    NSString *msg = error.userInfo[@"NSLocalizedFailureReason"];
-                    if (!msg) {
-                        msg = error.userInfo[@"message"];
-                    }if (!msg) {
-                        msg = @"share failed";
-                    }
-                    
-                    //          completion(@[@(error.code), msg]);
-                } else {
-                    //          completion(@[@0, @"share success"]);
-                }
+                [self handleResult:0 message:nil result:nil callbackFunction:callback webView:webView];
             }
         }];
     }];

@@ -43,35 +43,39 @@
 
 <br />
 <input type="button" value="分享文本"
-       onclick="MobclickAgent.getDeviceId(deviceId)" />
+       onclick="UMShareAgent.shareText()" />
 
 <br />
 <br />
 <br />
 <input type="button" value="分享链接"
-       onclick="MobclickAgent.onEvent('Event0')" />
+       onclick="UMShareAgent.shareLink()" />
 <br />
 <br />
 <br />
 <input type="button" value="分享图片"
-       onclick="MobclickAgent.onEventWithLabel('EventLabel', 'Label')" />
+       onclick="UMShareAgent.shareImage()" />
 <br />
 <br />
 <br />
 <input type="button" value="分享面板"
-       onclick="eventWithCounter()" />
+       onclick="UMShareAgent.shareBoard()" />
 <br />
 <br />
 <br />
-<input type="button" value="授权"
-       onclick="UMShareAgent.qqAuth()" />
+<input type="button" value="QQ授权"
+onclick="UMShareAgent.qqAuth()" />
 <br />
 <br />
 <br />
-<input type="button" value="获取用户资料"
-       onclick="MobclickAgent.onPageBegin('Home')" />
+<input type="button" value="新浪授权"
+onclick="UMShareAgent.sinaAuth()" />
 <br />
-
+<br />
+<br />
+<input type="button" value="微信授权"
+onclick="UMShareAgent.weixinAuth()" />
+<br />
 <br />
 <br />
 <br />
