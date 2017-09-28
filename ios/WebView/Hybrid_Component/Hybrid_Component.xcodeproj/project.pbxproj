@@ -15,6 +15,7 @@
 		633919B11F7B423200CFFCA0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B01F7B423200CFFCA0 /* SystemConfiguration.framework */; };
 		633919B31F7B424700CFFCA0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B21F7B424700CFFCA0 /* CoreData.framework */; };
 		633919B51F7B425400CFFCA0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633919B41F7B425400CFFCA0 /* MessageUI.framework */; };
+		63391AE81F7CA3FF00CFFCA0 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63391AE71F7CA3FF00CFFCA0 /* TwitterKitResources.bundle */; };
 		63C071F51F79068000B0D795 /* UMShareModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C071F41F79068000B0D795 /* UMShareModule.m */; };
 		63C072401F7906D500B0D795 /* libSocialEmail.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072041F7906D400B0D795 /* libSocialEmail.a */; };
 		63C072411F7906D500B0D795 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C072071F7906D400B0D795 /* Bolts.framework */; };
@@ -91,6 +92,7 @@
 		633919B01F7B423200CFFCA0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		633919B21F7B424700CFFCA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		633919B41F7B425400CFFCA0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		63391AE71F7CA3FF00CFFCA0 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		63C071F31F79068000B0D795 /* UMShareModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMShareModule.h; sourceTree = "<group>"; };
 		63C071F41F79068000B0D795 /* UMShareModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMShareModule.m; sourceTree = "<group>"; };
 		63C072041F7906D400B0D795 /* libSocialEmail.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialEmail.a; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		63C072291F7906D400B0D795 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				63391AE71F7CA3FF00CFFCA0 /* TwitterKitResources.bundle */,
 				63C0722A1F7906D400B0D795 /* Fabric.framework */,
 				63C0722B1F7906D400B0D795 /* libSocialTwitter.a */,
 				63C0722C1F7906D400B0D795 /* TwitterCore.framework */,
@@ -617,6 +620,7 @@
 				83BE8F491F78F6BC00969EA1 /* UMAnalytics.js in Resources */,
 				83BE8F0E1F78E16E00969EA1 /* Assets.xcassets in Resources */,
 				83BE8F3D1F78E2A800969EA1 /* push.html in Resources */,
+				63391AE81F7CA3FF00CFFCA0 /* TwitterKitResources.bundle in Resources */,
 				633919991F7B400100CFFCA0 /* UMPush.js in Resources */,
 				63C072581F7906D500B0D795 /* UMSocialSDKPromptResources.bundle in Resources */,
 				63C072491F7906D500B0D795 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -843,6 +847,7 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialSDKPlugin",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
@@ -882,6 +887,7 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialSDKPlugin",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";

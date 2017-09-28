@@ -27,11 +27,11 @@ static UMShareModule *umengHyhrid = nil;
         if ([functionName isEqualToString:@"getDeviceId"]) {
             [umengHyhrid getDeviceId:args webView:webView];
         } else {
-            SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@:", functionName]);
+            SEL selector = NSSelectorFromString([NSString stringWithFormat:@"%@:webView:", functionName]);
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             if ([umengHyhrid respondsToSelector:selector]) {
-                [umengHyhrid performSelector:selector withObject:args];
+                [umengHyhrid performSelector:selector withObject:args withObject:webView];
             }
 #pragma clang diagnostic pop
         }
@@ -225,7 +225,7 @@ static UMShareModule *umengHyhrid = nil;
             retDict[@"unionid"] = authInfo.unionId;
             retDict[@"accessToken"] = authInfo.accessToken;
             retDict[@"refreshToken"] = authInfo.refreshToken;
-            retDict[@"expiration"] = authInfo.expiration;
+            retDict[@"expiration"] = [authInfo.expiration isKindOfClass:[NSDate class]]?[authInfo.expiration description]:authInfo.expiration;
             
             retDict[@"name"] = authInfo.name;
             retDict[@"iconurl"] = authInfo.iconurl;
@@ -252,7 +252,7 @@ static UMShareModule *umengHyhrid = nil;
         jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld, %@, %@)", function, retCode, msg, jsonString];
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld, \"%@\", '%@\')", function, retCode, msg, jsonString];
     [webView stringByEvaluatingJavaScriptFromString:callBack];
 }
 

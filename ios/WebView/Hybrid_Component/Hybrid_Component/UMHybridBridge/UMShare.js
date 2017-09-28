@@ -11,6 +11,7 @@ function loadURL(url) {
     iFrame = null;
 };
 
+
 function exec(funName, args) {
     var commend = {
         functionName : funName,
@@ -21,18 +22,42 @@ function exec(funName, args) {
     loadURL(url);
 };
 
-function auth(platform) {
-    alert('ok‘);
-          exec("getUserInfo", [platform, "gotUserInfo"]);
-}
+var g_callback = null;
+
+function auth(platform, callback) {
+    g_callback = callback;
+    exec("getUserInfo", [platform, "gotUserInfo"]);
+};
 
 function gotUserInfo(code, message, result) {
-    
-}
+    if (g_callback != null) {
+        g_callback (code, message, result);
+    }
+    // if (code == 0) {
+    //     dataMap = JSON.parse(result);
+    //     alert(dataMap['uid'])
+    // } else {
+    //     alert(message);
+    // }
+};
 
 var UMShareAgent = {
-    qqauth : function() {
-          alert('ok2');
+    qqAuth : function() {
+        auth(0, function(code, message, result){
+            alert(code);
+            if (code == 0) {
+                dataMap = JSON.parse(result);
+                alert(dataMap['uid'])
+            } else {
+                alert(message);
+            }
+        });
+    },
+    sinaAuth : function() {
+        auth(1);
+    },
+    weixinAuth : function() {
+        auth(2);
     },
 };
 
