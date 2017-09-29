@@ -12,6 +12,7 @@ import android.webkit.WebViewClient;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.analytics.MobclickAgent.EScenarioType;
 import com.umeng.hybrid.UMHBAnalyticsSDK;
+import com.umeng.hybrid.UMHBPushSDK;
 import com.umeng.hybrid.UMHBSocialSDK;
 import com.umeng.socialize.UMShareAPI;
 
@@ -68,7 +69,7 @@ public class MainActivity extends Activity {
                 }else if (url.startsWith("umshare")){
                     UMHBSocialSDK.getInstance(MainActivity.this).execute(decodedURL, view);
                 }else if (url.startsWith("umpush")){
-
+                    UMHBPushSDK.getInstance(MainActivity.this).execute(decodedURL, view);
                 }
 
             } catch (Exception e) {

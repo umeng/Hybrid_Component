@@ -11,27 +11,27 @@
     <script type="text/javascript">
 	function onLoad() {
 	}
-	function deviceId(obj) {
-		document.getElementById("DeviceId").innerHTML = obj;
+	function displayjson(jsonObj) {
+    var jStr = "{ ";
+    for(var item in jsonObj){
+
+        jStr += "'"+item+"':'"+jsonObj[item]+"',";
+    }
+        jStr += " }";
+       alert(jStr);
+    }
+    	function displayarry(jsonarry) {
+
+             alert(jsonarry);
+    }
+	function remaincallback(stcode,remain) {
+	alert('' +stcode+'   '+remain);
 	}
-	function eventWithParameters() {
-		var eventData = new Object();
-		eventData.name = "aaa";
-		eventData.age = 17;
-		MobclickAgent.onEventWithParameters('EventParameters', eventData);
+	function listcallback(taglist) {
+	displayarry(taglist)
 	}
-	function eventWithCounter() {
-		var eventCounter = new Object();
-		eventCounter.name = "key";
-		eventCounter.age = 17;
-		MobclickAgent.onEventWithCounter("EventCounter", eventCounter, 12);
-	}
-	function onCCEvent() {
-		var eventArray = new Array();
-		eventArray[0] = "one";
-		eventArray[1] = "two";
-		eventArray[2] = "tree"
-		MobclickAgent.onCCEvent(eventArray, 10, "eventlabel");
+	function aliascallback(stcode) {
+	alert('' +stcode+'   ');
 	}
 		function gotoBack() {
 		window.location.href='index.html';
@@ -45,33 +45,33 @@
 
 <br />
 <input type="button" value="addTag"
-       onclick="MobclickAgent.getDeviceId(deviceId)" />
+       onclick="UMPushAgent.addTag('taggg','remaincallback')" />
 
 <br />
 <br />
 <br />
 <input type="button" value="delTag"
-       onclick="MobclickAgent.onEvent('Event0')" />
+       onclick="UMPushAgent.delTag('taggg','remaincallback')" />
 <br />
 <br />
 <br />
 <input type="button" value="displayTag"
-       onclick="MobclickAgent.onEventWithLabel('EventLabel', 'Label')" />
+       onclick="UMPushAgent.listTag('listcallback')" />
 <br />
 <br />
 <br />
 <input type="button" value="addAlias"
-       onclick="eventWithCounter()" />
+       onclick="UMPushAgent.addAlias('aaa','bbbb','aliascallback')" />
 <br />
 <br />
 <br />
 <input type="button" value="setAlias"
-       onclick="eventWithParameters()" />
+       onclick="UMPushAgent.setAlias('aaa','bbbb','aliascallback')" />
 <br />
 <br />
 <br />
 <input type="button" value="delAlias"
-       onclick="MobclickAgent.onPageBegin('Home')" />
+       onclick="UMPushAgent.delAlias('aaa','bbbb','aliascallback')" />
 <br />
 
 <br />

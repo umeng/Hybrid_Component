@@ -11,6 +11,7 @@ function loadURL(url) {
     iFrame = null;
 };
 
+
 function exec(funName, args) {
     var commend = {
         functionName : funName,
@@ -21,7 +22,30 @@ function exec(funName, args) {
     loadURL(url);
 };
 
-var MobclickAgent = {
-  
-};
 
+
+
+
+
+
+var UMPushAgent = {
+    addTag : function(tag,callback) {
+        exec("addTag", [tag, callback]);
+    },
+
+  delTag : function(tag,callback) {
+          exec("delTag", [tag, callback]);
+      },
+      listTag : function(callback) {
+                exec("listTag", [callback]);
+            },
+addAlias : function(alias,type,callback) {
+          exec("addAlias", [alias,type,callback]);
+      },
+setAlias : function(alias,type,callback) {
+          exec("setAlias", [alias,type,callback]);
+      },
+delAlias : function(alias,type,callback) {
+          exec("delAlias", [alias,type,callback]);
+      },
+};
