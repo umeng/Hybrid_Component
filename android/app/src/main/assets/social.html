@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="UMShare.js"></script>
+
+    <title>Hello World</title>
+    <script type="text/javascript">
+	function onLoad() {
+	}
+	function sharecallback(stcode) {
+	alert('' +stcode);
+	}
+
+	function displayjson(jsonObj) {
+    var jStr = "{ ";
+    for(var item in jsonObj){
+
+        jStr += "'"+item+"':'"+jsonObj[item]+"',";
+    }
+        jStr += " }";
+       alert(jStr);
+    }
+    function authcallback(stcode,result)
+	{
+
+	    displayjson(result);
+	}
+		function gotoBack() {
+		window.location.href='index.html';
+	}
+	function sharetext() {
+
+		UMShareAgent.doShare( 2, 'text share','','','','sharecallback')
+	}
+
+
+    </script>
+
+</head>
+
+<body>
+
+
+<br/>
+<input type="button" value="分享文本"
+       onclick="sharetext()"/>
+
+<br/>
+<br/>
+<br/>
+<input type="button" value="分享链接"
+       onclick="UMShareAgent.doShare( 0, 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','http://www.umeng.com','umeng','sharecallback')"/>
+<br/>
+<br/>
+<br/>
+<input type="button" value="分享图片"
+       onclick="UMShareAgent.doShare( 0, 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','','','sharecallback')"/>
+
+<br/>
+<br/>
+<br/>
+<input type="button" value="分享面板"
+       onclick="UMShareAgent.openShare( [0,1,2,3], 'des share','https://mobile.umeng.com/images/pic/home/social/img-1.png','http://www.umeng.com','umeng','sharecallback')"/>
+
+<br/>
+
+<br/>
+<input type="button" value="获取用户资料"
+       onclick="UMShareAgent.doAuth( 0,'authcallback')"/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<input type="button" value="返回"
+       onclick="gotoBack()"/>
+</body>
+</body>
+</html>
