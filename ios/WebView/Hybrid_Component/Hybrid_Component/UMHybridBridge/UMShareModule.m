@@ -168,10 +168,10 @@ static UMShareModule *umengHyhrid = nil;
             }if (!msg) {
                 msg = @"share failed";
             }
-            [self handleResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
+            [self handleShareResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
             
         } else {
-            [self handleResult:0 message:nil result:nil callbackFunction:callback webView:webView];
+            [self handleShareResult:0 message:nil result:nil callbackFunction:callback webView:webView];
         }
     }];
     
@@ -203,10 +203,10 @@ static UMShareModule *umengHyhrid = nil;
                 }if (!msg) {
                     msg = @"share failed";
                 }
-                [self handleResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
+                [self handleShareResult:error.code message:msg result:nil callbackFunction:callback webView:webView];
                 
             } else {
-                [self handleResult:0 message:nil result:nil callbackFunction:callback webView:webView];
+                [self handleShareResult:0 message:nil result:nil callbackFunction:callback webView:webView];
             }
         }];
     }];
@@ -273,7 +273,22 @@ static UMShareModule *umengHyhrid = nil;
         jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld, \"%@\", '%@\')", function, retCode, msg, jsonString];
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld,'%@\')", function, retCode, jsonString];
+    [webView stringByEvaluatingJavaScriptFromString:callBack];
+}
+
+- (void)handleShareResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result callbackFunction:(NSString *)function webView:(UIWebView *)webView
+{
+    if (function.length == 0) {
+        return;
+    }
+    NSString *jsonString = @"";
+    if (result) {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
+        jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    NSString *msg = message?:@"";
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, retCode];
     [webView stringByEvaluatingJavaScriptFromString:callBack];
 }
 

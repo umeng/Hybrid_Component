@@ -13,19 +13,9 @@
 	alert('' +stcode);
 	}
 
-	function displayjson(jsonObj) {
-    var jStr = "{ ";
-    for(var item in jsonObj){
-
-        jStr += "'"+item+"':'"+jsonObj[item]+"',";
-    }
-        jStr += " }";
-       alert(jStr);
-    }
     function authcallback(stcode,result)
 	{
-
-	    displayjson(result);
+        alert(result);
 	}
 		function gotoBack() {
 		window.location.href='index.html';
