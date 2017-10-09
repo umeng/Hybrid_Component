@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import android.content.Context;
+import android.util.Log;
 import com.umeng.commonsdk.UMConfigure;
 
 /**
@@ -12,18 +13,19 @@ import com.umeng.commonsdk.UMConfigure;
 
 public class UMHBCommonSDK {
     public static void init(Context context, String appkey, String channel, int type, String secret){
-        initCocos("hybrid","1.0");
+        initHybrid("hybrid","1.0");
         UMConfigure.init(context,appkey,channel,type,secret);
     }
-    public static void initCocos(String v,String t){
+    public static void initHybrid(String v,String t){
 
         Method method = null;
         try {
-
+            Log.e("xxxxxx","111111");
             Class<?> config = Class.forName("com.umeng.commonsdk.UMConfigure");
             method = config.getDeclaredMethod("setWraperType", String.class, String.class);
             method.setAccessible(true);
             method.invoke(null, v,t);
+            Log.e("xxxxxx","2222");
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
