@@ -227,7 +227,8 @@ static UMPushModule *umengHyhrid = nil;
     
     
     NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, retCode];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+    NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
+    [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
 - (void)handleTagsResult:(NSString *)tags callbackFunction:(NSString *)function webView:(UIWebView *)webView
 {
@@ -236,17 +237,16 @@ static UMPushModule *umengHyhrid = nil;
     }
     
     NSString *callBack = [NSString stringWithFormat:@"%@('%@\')", function, tags];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+    NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
+    [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
 - (void)handleRemainResult:(NSInteger)retCode remain:(NSInteger)remain callbackFunction:(NSString *)function webView:(UIWebView *)webView
 {
     if (function.length == 0) {
         return;
     }
-  
-    
-
     NSString *callBack = [NSString stringWithFormat:@"%@(%ld,%ld)", function, retCode, remain];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+    NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
+    [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
 @end
