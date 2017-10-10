@@ -322,7 +322,8 @@ static UMShareModule *umengHyhrid = nil;
     }
     NSString *msg = message?:@"";
     NSString *callBack = [NSString stringWithFormat:@"%@(%ld,'%@\')", function, retCode, jsonString];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+     NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
+    [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
 
 - (void)handleShareResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result callbackFunction:(NSString *)function webView:(UIWebView *)webView
@@ -337,7 +338,8 @@ static UMShareModule *umengHyhrid = nil;
     }
     NSString *msg = message?:@"";
     NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, retCode];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+    NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
+    [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
 
 @end

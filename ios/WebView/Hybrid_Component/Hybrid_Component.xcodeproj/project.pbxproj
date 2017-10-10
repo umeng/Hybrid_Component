@@ -91,7 +91,7 @@
 		633919B21F7B424700CFFCA0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		633919B41F7B425400CFFCA0 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		63391AE71F7CA3FF00CFFCA0 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		63391B071F7E089300CFFCA0 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = UTDID.framework; path = ../../../../../../../../../../Downloads/umeng_sdk_ios_59cdd0ec1061d267fc00000c/thirdparties/UTDID.framework; sourceTree = "<group>"; };
+		63391B071F7E089300CFFCA0 /* UTDID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UTDID.framework; path = ../../../../../../../../../../Downloads/umeng_sdk_ios_59cdd0ec1061d267fc00000c/thirdparties/UTDID.framework; sourceTree = "<group>"; };
 		63391B0C1F7E672500CFFCA0 /* UMShare.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = UMShare.js; path = ../../../../../android/app/src/main/assets/UMShare.js; sourceTree = "<group>"; };
 		63391B0D1F7E672500CFFCA0 /* UMAnalytics.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = UMAnalytics.js; path = ../../../../../android/app/src/main/assets/UMAnalytics.js; sourceTree = "<group>"; };
 		63391B0E1F7E672500CFFCA0 /* UMPush.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = UMPush.js; path = ../../../../../android/app/src/main/assets/UMPush.js; sourceTree = "<group>"; };
@@ -152,6 +152,7 @@
 		63C0723F1F7906D400B0D795 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		63C0725B1F7A043D00B0D795 /* UMPushModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMPushModule.m; sourceTree = "<group>"; };
 		63C0725C1F7A043D00B0D795 /* UMPushModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
+		7B0BF9511F8C62C900ED7CC5 /* Hybrid_Component.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hybrid_Component.entitlements; sourceTree = "<group>"; };
 		83BE8F011F78E16D00969EA1 /* Hybrid_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hybrid_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BE8F041F78E16D00969EA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83BE8F051F78E16E00969EA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -420,6 +421,7 @@
 		83BE8F031F78E16D00969EA1 /* Hybrid_Component */ = {
 			isa = PBXGroup;
 			children = (
+				7B0BF9511F8C62C900ED7CC5 /* Hybrid_Component.entitlements */,
 				63391B071F7E089300CFFCA0 /* UTDID.framework */,
 				83BE8F441F78EF6700969EA1 /* UMHybridBridge */,
 				83BE8F3F1F78EF4600969EA1 /* UMComponents */,
@@ -576,6 +578,11 @@
 					83BE8F001F78E16D00969EA1 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					83BE8F181F78E16E00969EA1 = {
 						CreatedOnToolsVersion = 9.0;
@@ -822,6 +829,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hybrid_Component/Hybrid_Component.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -862,6 +870,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Hybrid_Component/Hybrid_Component.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
