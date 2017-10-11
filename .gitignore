@@ -6,3 +6,4 @@ build/*
 doc/*
 distribution/*
 .DS_Store
+dabao.sh
