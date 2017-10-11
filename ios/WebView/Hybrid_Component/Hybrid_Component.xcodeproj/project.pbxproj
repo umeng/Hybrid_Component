@@ -50,6 +50,7 @@
 		63C072591F7906D500B0D795 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 63C0723E1F7906D400B0D795 /* UMSocialSDKResources.bundle */; };
 		63C0725A1F7906D500B0D795 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C0723F1F7906D400B0D795 /* UShareUI.framework */; };
 		63C0725D1F7A043D00B0D795 /* UMPushModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C0725B1F7A043D00B0D795 /* UMPushModule.m */; };
+		7B1F047B1F8E214A007A1B05 /* UMCommonModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F047A1F8E214A007A1B05 /* UMCommonModule.m */; };
 		83BE8F061F78E16E00969EA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F051F78E16E00969EA1 /* AppDelegate.m */; };
 		83BE8F091F78E16E00969EA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BE8F081F78E16E00969EA1 /* ViewController.m */; };
 		83BE8F0C1F78E16E00969EA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BE8F0A1F78E16E00969EA1 /* Main.storyboard */; };
@@ -153,6 +154,8 @@
 		63C0725B1F7A043D00B0D795 /* UMPushModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMPushModule.m; sourceTree = "<group>"; };
 		63C0725C1F7A043D00B0D795 /* UMPushModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMPushModule.h; sourceTree = "<group>"; };
 		7B0BF9511F8C62C900ED7CC5 /* Hybrid_Component.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hybrid_Component.entitlements; sourceTree = "<group>"; };
+		7B1F04791F8E214A007A1B05 /* UMCommonModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMCommonModule.h; sourceTree = "<group>"; };
+		7B1F047A1F8E214A007A1B05 /* UMCommonModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UMCommonModule.m; sourceTree = "<group>"; };
 		83BE8F011F78E16D00969EA1 /* Hybrid_Component.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hybrid_Component.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BE8F041F78E16D00969EA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		83BE8F051F78E16E00969EA1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				63C071F41F79068000B0D795 /* UMShareModule.m */,
 				63C0725C1F7A043D00B0D795 /* UMPushModule.h */,
 				63C0725B1F7A043D00B0D795 /* UMPushModule.m */,
+				7B1F04791F8E214A007A1B05 /* UMCommonModule.h */,
+				7B1F047A1F8E214A007A1B05 /* UMCommonModule.m */,
 			);
 			path = UMHybridBridge;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				63C071F51F79068000B0D795 /* UMShareModule.m in Sources */,
 				83BE8F091F78E16E00969EA1 /* ViewController.m in Sources */,
 				83BE8F141F78E16E00969EA1 /* main.m in Sources */,
+				7B1F047B1F8E214A007A1B05 /* UMCommonModule.m in Sources */,
 				63C0725D1F7A043D00B0D795 /* UMPushModule.m in Sources */,
 				83BE8F471F78EF6700969EA1 /* UMAnalyticsModule.m in Sources */,
 				83BE8F061F78E16E00969EA1 /* AppDelegate.m in Sources */,
