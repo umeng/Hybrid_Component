@@ -34,7 +34,6 @@ public class App extends Application {
 	    @Override
 	    public void onCreate() {
 	        super.onCreate();
-
 	        UMHBCommonSDK.setLogEnabled(true);
 			UMHBCommonSDK.init(this, "59892f08310c9307b60023d0", "Umeng", UMConfigure.DEVICE_TYPE_PHONE,
 	            "669c30a9584623e70e8cd01b0381dcb4");

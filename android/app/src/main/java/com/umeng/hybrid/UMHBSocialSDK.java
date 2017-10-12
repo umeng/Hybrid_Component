@@ -121,7 +121,7 @@ public class UMHBSocialSDK {
                         sharecallbackJS(webView,callBack,CANCEL);
                     }
                 }).open();
-            }else if (functionName.equals("getUserInfo")){
+            }else if (functionName.equals("doAuth")){
                 int platform = args.getInt(0);
                 final String callBack = args.getString(1);
                 UMShareAPI.get(mactivity).getPlatformInfo(mactivity, getPlatform(platform), new UMAuthListener() {
