@@ -8,8 +8,8 @@
 将下载的jar放入app下的libs中：
 
 
-![](http://upload-images.jianshu.io/upload_images/1483670-47bb5cdca1ff2fe8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+![image.png](http://upload-images.jianshu.io/upload_images/1483670-9c93384e5a607551.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 首先需要拷贝common_android文件夹中的文件拷贝到你的工程中（路径为`com.umeng.hybrid`）：
 
 
@@ -79,8 +79,6 @@
 ![](http://upload-images.jianshu.io/upload_images/1483670-1dc704e7b7c5dd42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-+ 添加需要的组件桥接文件
- ![](http://upload-images.jianshu.io/upload_images/7304622-62d16ae4a9e99442.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
  
 + 添加友盟初始化配置文件
 
@@ -276,7 +274,7 @@ Push SDK 的平台配置与单独 Native 项目集成相同，请参考 [接入P
 UMPushAgent.addTag('tag','remaincallback')
 ```
 * tag 此参数为tag
-* callback 第一个参数code为错误码，当为0时标记成功。第二个参数为remain值：
+* callback 第一个参数code为错误码，当为200时标记成功。第二个参数为remain值：
 ```
 function remaincallback(stcode,remain) {
 	alert('' +stcode+'   '+remain);
@@ -290,7 +288,7 @@ function remaincallback(stcode,remain) {
  UMPushAgent.delTag('tag','remaincallback')
 ```
 * tag 此参数为tag
-* callback 第一个参数code为错误码，当为0时标记成功。第二个参数为remain值：
+* callback 第一个参数code为错误码，当为200时标记成功。第二个参数为remain值：
 ```
 function remaincallback(stcode,remain) {
 	alert('' +stcode+'   '+remain);
@@ -353,6 +351,7 @@ function aliascallback(stcode) {
 # Share
 ## Android
 ### 初始化
+在share_android文件夹下有一个social的module，开发者可以依赖这个module，并将下载所需的平台的jar放入这个module的lib中，也可以不依赖这个module，直接将使用平台的jar和res放入主module。
 在Application中设置使用的三方平台的appkey：
 
 ```
