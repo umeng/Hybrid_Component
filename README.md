@@ -142,6 +142,35 @@ MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
 
 js部分首先需要使用`UMAnalytics.js`文件：
 
+设置webView
+
+```
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSString * url = [[request URL] absoluteString];
+    NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if ([UMAnalyticsModule execute:parameters webView:webView]) {
+        return NO;
+    } else if ([UMPushModule execute:parameters webView:webView]) {
+        return NO;
+    } else if ([UMShareModule execute:parameters webView:webView]) {
+        return NO;
+    }
+    return YES;
+}
+```
+设置WKWebView
+
+```
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    
+    NSString *url = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [UMAnalyticsModule execute:parameters webView:webView];
+    decisionHandler(WKNavigationActionPolicyAllow);
+    
+}
+```
 
 ## 接口说明
 ### 自定义事件
