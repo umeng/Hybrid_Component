@@ -68,7 +68,6 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     if([webView.request.URL.absoluteString hasSuffix:@"/index.html"]){
-        [MobClick beginLogPageView:@"index.html"];
     }
 }
 

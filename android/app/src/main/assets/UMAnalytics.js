@@ -21,7 +21,7 @@ function exec(funName, args) {
     loadURL(url);
 };
 
-var MobclickAgent = {
+var UMAnalyticsAgent = {
   
     /**
      * 自定义事件数量统计
