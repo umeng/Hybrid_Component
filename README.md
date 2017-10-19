@@ -166,8 +166,16 @@ js部分首先需要使用`UMAnalytics.js`文件：
     NSString *url = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [UMAnalyticsModule execute:parameters webView:webView];
-    decisionHandler(WKNavigationActionPolicyAllow);
+        NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if ([UMAnalyticsModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else if ([UMPushModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else if ([UMShareModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
     
 }
 ```
