@@ -356,15 +356,15 @@ static UMAnalyticsModule *umengHyhrid = nil;
     [DplusMobClick unregisterSuperProperty:propertyName];
 }
 
-+ (void)getSuperProperty:(NSArray *)arguments webView:(UIWebView *)webView {
++ (void)getSuperProperty:(NSArray *)arguments webView:(WKWebView *)webView {
     NSString *propertyName = [arguments objectAtIndex:0];
     
     NSString *callBack = [NSString stringWithFormat:@"getSuperProperty('%@')",[DplusMobClick getSuperProperty:propertyName]];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
-    
+    [webView evaluateJavaScript:callBack completionHandler:nil];
+
 }
 
-+ (void)getSuperProperties:(NSArray *)arguments  webView:(UIWebView *)webView {
++ (void)getSuperProperties:(NSArray *)arguments  webView:(WKWebView *)webView {
     
     NSString *jsonString = nil;
     NSError *error = nil;
@@ -379,7 +379,7 @@ static UMAnalyticsModule *umengHyhrid = nil;
     }
     
     NSString *callBack = [NSString stringWithFormat:@"getSuperProperties('%@')",jsonString];
-    [webView stringByEvaluatingJavaScriptFromString:callBack];
+    [webView evaluateJavaScript:callBack completionHandler:nil];
 }
 
 + (void)clearSuperProperties:(NSArray *)arguments {
