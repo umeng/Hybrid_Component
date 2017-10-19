@@ -9,7 +9,9 @@
 #import "ViewController.h"
 #import <UMAnalytics/MobClick.h>
 #import "UMAnalyticsModule.h"
-@interface ViewController () <UIWebViewDelegate>
+#import "UMShareModule.h"
+#import "UMPushModule.h"
+@interface ViewController () <WKNavigationDelegate>
 
 @end
 
@@ -54,9 +56,15 @@
     NSString *url = [navigationAction.request.URL.absoluteString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *parameters = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [UMAnalyticsModule execute:parameters webView:webView];
-    decisionHandler(WKNavigationActionPolicyAllow);
-    
+    if ([UMAnalyticsModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else if ([UMPushModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else if ([UMShareModule execute:parameters webView:webView]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
 }
 
 
