@@ -336,8 +336,15 @@ static UMShareModule *umengHyhrid = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
         jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
+    int stcode = retCode;
+    if (retCode == 2009) {
+        stcode = -1;
+    }
+    if (retCode == 0) {
+        stcode == 200;
+    }
     NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, retCode];
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, stcode];
     NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
     [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }

@@ -7,3 +7,5 @@ doc/*
 distribution/*
 .DS_Store
 dabao.sh
+/upload/*
+upload.*
