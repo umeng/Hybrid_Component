@@ -127,7 +127,7 @@ static UMShareModule *umengHyhrid = nil;
         case 24:
             return UMSocialPlatformType_Whatsapp;
         case 25:
-            return UMSocialPlatformType_Linkedin;
+            return UMSocialPlatformType_Line;
         case 26:
             return UMSocialPlatformType_Flickr;
         case 27:
@@ -271,7 +271,7 @@ static UMShareModule *umengHyhrid = nil;
     
     UMSocialPlatformType plf = [self platformType:platform];
     if (plf == UMSocialPlatformType_UnKnown) {
-        [self handleResult:-1 message:@"invalid platform" result:nil callbackFunction:callback webView:webView];
+        [self handleResult:-2 message:@"invalid platform" result:nil callbackFunction:callback webView:webView];
         return;
     }
     
@@ -310,18 +310,36 @@ static UMShareModule *umengHyhrid = nil;
     }];
 }
 
+- (NSInteger)switchCode:(NSInteger)code
+{
+    switch (code) {
+        case 0: // success
+            return 200;
+            break;
+        case 2009: // cancel
+            return -1;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
+}
+
 - (void)handleResult:(NSInteger)retCode message:(NSString *)message result:(NSDictionary *)result callbackFunction:(NSString *)function webView:(UIWebView *)webView
 {
     if (function.length == 0) {
         return;
     }
+    NSInteger stCode = [self switchCode:retCode];
+    
     NSString *jsonString = @"";
     if (result) {
         NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
         jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld,'%@\')", function, retCode, jsonString];
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld,'%@\')", function, stCode, jsonString];
      NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
     [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
@@ -336,15 +354,11 @@ static UMShareModule *umengHyhrid = nil;
         NSData *data = [NSJSONSerialization dataWithJSONObject:result options:0 error:nil];
         jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
-    int stcode = retCode;
-    if (retCode == 2009) {
-        stcode = -1;
-    }
-    if (retCode == 0) {
-        stcode == 200;
-    }
+
+    NSInteger stCode = [self switchCode:retCode];
+    
     NSString *msg = message?:@"";
-    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, stcode];
+    NSString *callBack = [NSString stringWithFormat:@"%@(%ld)", function, stCode];
     NSString *callBackAlert =[NSString stringWithFormat:@"setTimeout(function(){%@;},1)",callBack];
     [webView stringByEvaluatingJavaScriptFromString:callBackAlert];
 }
