@@ -9,3 +9,7 @@ distribution/*
 dabao.sh
 /upload/*
 upload.*
+UMHybrid*.*
+/UMHybrid/*
+/UMHybrid/**
+/UMHybrid/*/*
