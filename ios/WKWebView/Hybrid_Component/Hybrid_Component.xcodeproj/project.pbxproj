@@ -822,6 +822,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -836,6 +837,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**";
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents",
@@ -853,7 +855,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE = "12c70f3e-b466-4415-8844-09d3b58fb681";
 				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -863,6 +865,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -877,6 +880,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**";
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents",
@@ -894,7 +898,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.UmengPlus.UMDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e5c7e4a9-7546-45f7-973f-8d90a99f2fb5";
+				PROVISIONING_PROFILE = "12c70f3e-b466-4415-8844-09d3b58fb681";
 				PROVISIONING_PROFILE_SPECIFIER = UMengPlusDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
