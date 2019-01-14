@@ -1,7 +1,6 @@
 package com.umeng.soexample;
 
 import android.app.Activity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +9,6 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.analytics.MobclickAgent.EScenarioType;
 import com.umeng.hybrid.UMHBAnalyticsSDK;
 import com.umeng.hybrid.UMHBPushSDK;
 import com.umeng.hybrid.UMHBSocialSDK;
@@ -27,8 +25,8 @@ public class MainActivity extends Activity {
         webView.loadUrl("file:///android_asset/index.html");
         webView.setWebViewClient(new MyWebviewClient());
         webView.setWebChromeClient(new MyChromeClient());
-        MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
-        MobclickAgent.openActivityDurationTrack(false);
+
+
         MobclickAgent.setSessionContinueMillis(1000);
 
     }

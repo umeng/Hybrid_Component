@@ -10,13 +10,11 @@
 typedef void(^CallbackBlock)();
 
 /**
- 统计的场景类别，默认为普通统计；若使用游戏统计API，则需选择游戏场景类别，如E_UM_GAME。
+ 统计的场景类别，默认为普通统计；若使用游戏统计API，则需选择游戏场景类别，如E_UM_NORMAL。
  */
 typedef NS_ENUM (NSUInteger, eScenarioType)
 {
     E_UM_NORMAL = 0,    // default value
-    E_UM_GAME   = 1,    // game
-    E_UM_DPLUS  = 4    // DPlus
 };
 
 @class CLLocation;
@@ -29,7 +27,7 @@ typedef NS_ENUM (NSUInteger, eScenarioType)
 ///---------------------------------------------------------------------------------------
 
 /** 设置 统计场景类型，默认为普通应用统计：E_UM_NORMAL
- @param 游戏统计必须设置为：E_UM_GAME.
+ @param 
  @return void.
  */
 + (void)setScenarioType:(eScenarioType)eSType;
@@ -205,4 +203,45 @@ typedef NS_ENUM (NSUInteger, eScenarioType)
 
 + (void)setCrashCBBlock:(CallbackBlock)cbBlock;
 
+/** DeepLink事件
+ @param link 唤起应用的link
+ @return void.
+ */
++ (void)onDeepLinkReceived:(NSURL *)link;
+
+/**
+ * 设置预置事件属性 键值对 会覆盖同名的key
+ */
++(void) registerPreProperties:(NSDictionary *)property;
+
+/**
+ *
+ * 删除指定预置事件属性
+ @param key
+ */
++(void) unregisterPreProperty:(NSString *)propertyName;
+
+/**
+ * 获取预置事件所有属性；如果不存在，则返回空。
+ */
++(NSDictionary *)getPreProperties;
+
+/**
+ *清空所有预置事件属性。
+ */
++(void)clearPreProperties;
+
+
+/**
+ * 设置关注事件是否首次触发,只关注eventList前五个合法eventID.只要已经保存五个,此接口无效
+ */
++(void)setFirstLaunchEvent:(NSArray *)eventList;
+
+/** 设置是否自动采集页面, 默认NO(不自动采集).
+ @param value 设置为YES, umeng SDK 会将自动采集页面信息
+ */
++ (void)setAutoPageEnabled:(BOOL)value;
+
 @end
+
+

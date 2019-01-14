@@ -11,39 +11,26 @@ import android.content.Context;
 import android.util.Log;
 import android.webkit.WebView;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.analytics.MobclickAgent.EScenarioType;
-import com.umeng.analytics.dplus.UMADplus;
-import com.umeng.analytics.game.UMGameAgent;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
+ * 示例： SDK 接口桥接封装类，并未封装SDK所有API(仅封装常用API接口)，设置配置参数类API应在Android原生代码中
+ * 调用，例如：SDK初始化函数，Log开关函数，子进程自定义事件埋点使能函数，异常捕获功能使能/关闭函数等等。
+ * 如果还需要封装其它SDK API，请参考本例自行封装。
  * Created by wangfei on 17/9/28.
+ * -- 适配(common 2.0.0 + analytics 8.0.0) modify by yujie on 18/12/28
  */
 
 public class UMHBAnalyticsSDK {
     private static Context mContext = null;
-    /**
-     * 可以设置是否为游戏，如果是游戏会进行初始化
-     */
-    private static boolean isGameInited = false;
 
     private static class Holder {
         private static final UMHBAnalyticsSDK INSTANCE = new UMHBAnalyticsSDK();
     }
 
     private UMHBAnalyticsSDK() {
-    }
-
-    /**
-     * 初始化游戏
-     */
-    private void initGame() {
-        UMGameAgent.init(mContext);
-        UMGameAgent.setPlayerLevel(1);
-        MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_GAME);
-        isGameInited = true;
     }
 
     public static UMHBAnalyticsSDK getInstance(Context context) {
@@ -60,16 +47,13 @@ public class UMHBAnalyticsSDK {
 
             JSONObject jsonObj = new JSONObject(str);
             String functionName = jsonObj.getString("functionName");
+            // 参数列统一用JSONArray传入，参数解析在具体封装函数中进行。
             JSONArray args = jsonObj.getJSONArray("arguments");
             Log.d("UMHybrid", "functionName:" + functionName + "|||args:" + args.toString());
             if (functionName.equals("getDeviceId")) {
                 getDeviceId(args, webView);
-            } else if (functionName.equals("getSuperProperty")) {
-                getSuperProperty(args, webView);
-            } else if (functionName.equals("getSuperProperties")) {
-                getSuperProperties(args, webView);
-            } else if (functionName.equals("clearSuperProperties")) {
-                clearSuperProperties();
+            } else if (functionName.equals("getPreProperties")) {
+                getPreProperties(args, webView); // 需要通过js callback返回结果
             } else {
                 Class<UMHBAnalyticsSDK> classType = UMHBAnalyticsSDK.class;
                 Method method = classType.getDeclaredMethod(functionName, JSONArray.class);
@@ -91,22 +75,15 @@ public class UMHBAnalyticsSDK {
         }
     }
 
-    private void getSuperProperty(JSONArray args, WebView webView) {
-        Log.d("UMHybrid", "getSuperProperty  args:" + args.toString());
+    /**
+     *
+     * @param args
+     * @param webView
+     */
+    private void getPreProperties(JSONArray args, WebView webView) {
+        Log.d("UMHybrid", "getPreProperties args:" + args.toString());
         try {
-            String callBack = args.getString(0);
-            String propertyName = args.getString(1);
-            String propertyValue = (String) UMADplus.getSuperProperty(mContext, propertyName);
-            webView.loadUrl("javascript:" + callBack + "('" + propertyValue + "')");
-        } catch (Exception e) {
-            e.toString();
-        }
-    }
-
-    private void getSuperProperties(JSONArray args, WebView webView) {
-        Log.d("UMHybrid", "getSuperProperties args:" + args.toString());
-        try {
-            String properties = UMADplus.getSuperProperties(mContext);
+            String properties = MobclickAgent.getPreProperties(mContext).toString();
             String callBack = args.getString(0);
             webView.loadUrl("javascript:" + callBack + "('" + properties + "')");
 
@@ -197,9 +174,9 @@ public class UMHBAnalyticsSDK {
     @SuppressWarnings({ "unused" })
     private void profileSignInWithPUIDWithProvider(final JSONArray args) throws JSONException {
         Log.d("UMHybrid", "profileSignInWithPUIDWithProvider  args:" + args.toString());
-        String puid = args.getString(0);
-        String provider = args.getString(1);
-        MobclickAgent.onProfileSignIn(puid, provider);
+        String provider = args.getString(0);
+        String uid = args.getString(1);
+        MobclickAgent.onProfileSignIn(provider, uid);
     }
 
     @SuppressWarnings({ "unused" })
@@ -209,143 +186,8 @@ public class UMHBAnalyticsSDK {
     }
 
     @SuppressWarnings({ "unused" })
-    private void setUserLevelId(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "setUserLevelId [" + isGameInited + "] args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        int level = args.getInt(0);
-        UMGameAgent.setPlayerLevel(level);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void startLevel(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "startLevel  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String level = args.getString(0);
-        UMGameAgent.startLevel(level);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void failLevel(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "failLevel  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String level = args.getString(0);
-        UMGameAgent.failLevel(level);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void finishLevel(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "finishLevel  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String level = args.getString(0);
-        UMGameAgent.finishLevel(level);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void exchange(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "exchange  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        double currencyAmount = args.getDouble(0);
-        String currencyType = args.getString(1);
-        double virtualAmount = args.getDouble(2);
-        int channel = args.getInt(3);
-        String orderId = args.getString(4);
-        UMGameAgent.exchange(currencyAmount, currencyType, virtualAmount, channel, orderId);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void pay(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "pay  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        double money = args.getDouble(0);
-        double coin = args.getDouble(1);
-        int source = args.getInt(2);
-        UMGameAgent.pay(money, coin, source);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void payWithItem(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "payWithItem  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        double money = args.getDouble(0);
-        String item = args.getString(1);
-        int number = args.getInt(2);
-        double price = args.getDouble(3);
-        int source = args.getInt(4);
-        UMGameAgent.pay(money, item, number, price, source);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void buy(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "buy  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String item = args.getString(0);
-        int number = args.getInt(1);
-        double price = args.getDouble(2);
-        UMGameAgent.buy(item, number, price);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void use(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "use  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String item = args.getString(0);
-        int number = args.getInt(1);
-        double price = args.getDouble(2);
-        UMGameAgent.use(item, number, price);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void bonus(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "bonus  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        double coin = args.getDouble(0);
-        int source = args.getInt(1);
-        UMGameAgent.bonus(coin, source);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void bonusWithItem(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "bonusWithItem  args:" + args.toString());
-        if (!isGameInited) {
-            initGame();
-        }
-        String item = args.getString(0);
-        int number = args.getInt(1);
-        double price = args.getDouble(2);
-        int source = args.getInt(3);
-        UMGameAgent.bonus(item, number, price, source);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void track(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "track");
-        String eventName = args.getString(0);
-        UMADplus.track(mContext, eventName);
-    }
-
-    @SuppressWarnings({ "unused" })
-    private void trackWithProperty(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "trackWithProperty");
+    private void onEventObject(final JSONArray args) throws JSONException {
+        Log.d("UMHybrid", "onEventObject");
         String eventName = args.getString(0);
         JSONObject obj = args.getJSONObject(1);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -355,27 +197,30 @@ public class UMHBAnalyticsSDK {
             Object o = obj.get(key);
             map.put(key, o);
         }
-        UMADplus.track(mContext, eventName, map);
+        MobclickAgent.onEventObject(mContext, eventName, map);
     }
 
     @SuppressWarnings({ "unused" })
-    private void registerSuperProperty(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "registerSuperProperty");
-        String propertyKey = args.getString(0);
-        String propertyValue = args.getString(1);
-        UMADplus.registerSuperProperty(mContext, propertyKey, propertyValue);
+    private void registerPreProperties(final JSONArray args) throws JSONException {
+        Log.d("UMHybrid", "registerPreProperties");
+        for(int i=0 ; i < args.length() ;i++)
+        {
+            //获取每一个JsonObject对象
+            MobclickAgent.registerPreProperties(mContext, args.getJSONObject(i));
+        }
+
     }
 
     @SuppressWarnings({ "unused" })
-    private void unregisterSuperProperty(final JSONArray args) throws JSONException {
-        Log.d("UMHybrid", "unregisterSuperProperty");
+    private void unregisterPreProperty(final JSONArray args) throws JSONException {
+        Log.d("UMHybrid", "unregisterPreProperty");
         String propertyName = args.getString(0);
-        UMADplus.unregisterSuperProperty(mContext, propertyName);
+        MobclickAgent.unregisterPreProperty(mContext, propertyName);
     }
 
-    private void clearSuperProperties() throws JSONException {
-        Log.d("UMHybrid", "clearSuperProperties");
-        UMADplus.clearSuperProperties(mContext);
+    private void clearPreProperties(final JSONArray args) throws JSONException {
+        Log.d("UMHybrid", "clearPreProperties");
+        MobclickAgent.clearPreProperties(mContext);
     }
 
     @SuppressWarnings({ "unused" })
@@ -386,6 +231,6 @@ public class UMHBAnalyticsSDK {
         for (int i = 0; i < array.length(); i++) {
             list.add(array.getString(i));
         }
-        UMADplus.setFirstLaunchEvent(mContext, list);
+        MobclickAgent.setFirstLaunchEvent(mContext, list);
     }
 }

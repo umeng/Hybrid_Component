@@ -65,6 +65,9 @@
 		83BE8F4C1F78F6D700969EA1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */; };
 		83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4D1F78F6DC00969EA1 /* libz.tbd */; };
 		83BE8F501F78F6E100969EA1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */; };
+		9D68BC2B2109C6FD004B0A7E /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D68BC282109C6FD004B0A7E /* UMCommonLog.bundle */; };
+		9D68BC2C2109C6FD004B0A7E /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D68BC292109C6FD004B0A7E /* UMCommonLog.framework */; };
+		9D68BC2D2109C6FD004B0A7E /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D68BC2A2109C6FD004B0A7E /* UMCommon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +182,9 @@
 		83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		83BE8F4D1F78F6DC00969EA1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9D68BC282109C6FD004B0A7E /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
+		9D68BC292109C6FD004B0A7E /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
+		9D68BC2A2109C6FD004B0A7E /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,7 @@
 				83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */,
 				63C0724A1F7906D500B0D795 /* libSocialSina.a in Frameworks */,
 				63C072441F7906D500B0D795 /* FBSDKMessengerShareKit.framework in Frameworks */,
+				9D68BC2D2109C6FD004B0A7E /* UMCommon.framework in Frameworks */,
 				63C0724F1F7906D500B0D795 /* libSocialTwitter.a in Frameworks */,
 				63C072531F7906D500B0D795 /* libWeChatSDK.a in Frameworks */,
 				63C072501F7906D500B0D795 /* TwitterCore.framework in Frameworks */,
@@ -214,6 +221,7 @@
 				63C072401F7906D500B0D795 /* libSocialEmail.a in Frameworks */,
 				63C072461F7906D500B0D795 /* libSocialFacebook.a in Frameworks */,
 				63C072561F7906D500B0D795 /* libUMSocialCloudShare.a in Frameworks */,
+				9D68BC2C2109C6FD004B0A7E /* UMCommonLog.framework in Frameworks */,
 				63C072411F7906D500B0D795 /* Bolts.framework in Frameworks */,
 				63C072571F7906D500B0D795 /* libUMSocialLog.a in Frameworks */,
 				63C072471F7906D500B0D795 /* libSocialQQ.a in Frameworks */,
@@ -474,6 +482,9 @@
 		83BE8F3F1F78EF4600969EA1 /* UMComponents */ = {
 			isa = PBXGroup;
 			children = (
+				9D68BC2A2109C6FD004B0A7E /* UMCommon.framework */,
+				9D68BC282109C6FD004B0A7E /* UMCommonLog.bundle */,
+				9D68BC292109C6FD004B0A7E /* UMCommonLog.framework */,
 				63C072011F7906D400B0D795 /* UMShare */,
 				63187B311F7A0501004FC6B4 /* UMPush.framework */,
 				83BE8F401F78EF4600969EA1 /* UMAnalytics.framework */,
@@ -635,6 +646,7 @@
 				63391B101F7E672500CFFCA0 /* UMAnalytics.js in Resources */,
 				63C072541F7906D500B0D795 /* README.txt in Resources */,
 				63391B111F7E672500CFFCA0 /* UMPush.js in Resources */,
+				9D68BC2B2109C6FD004B0A7E /* UMCommonLog.bundle in Resources */,
 				83BE8F0E1F78E16E00969EA1 /* Assets.xcassets in Resources */,
 				63391AE81F7CA3FF00CFFCA0 /* TwitterKitResources.bundle in Resources */,
 				63C072581F7906D500B0D795 /* UMSocialSDKPromptResources.bundle in Resources */,

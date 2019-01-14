@@ -1,3 +1,4 @@
+android/.idea/
 UMMobClick.xcodeproj/xcshareddata/xcbaselines/*
 UMMobClick.xcodeproj/xcshareddata/*
 UMMobClick.xcodeproj/project.xcworkspace/*
@@ -38,6 +39,7 @@ build/
 local.properties
 *.iml
 dabao.sh
+dabao_db.sh
 upload.*
 /upload/*
 /UMHybrid/*

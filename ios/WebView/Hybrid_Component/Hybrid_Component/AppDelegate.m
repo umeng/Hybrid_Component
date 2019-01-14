@@ -23,9 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [UMConfigure setLogEnabled:YES]; // 开发调试时可在console查看友盟 志显示,发布产
-    
+    [MobClick setScenarioType:E_UM_NORMAL];
     [UMCommonModule initWithAppkey:@"571459ad67e58ea24c0016fd" channel:@"App Store"];
-    [MobClick setScenarioType:E_UM_GAME|E_UM_DPLUS]; // optional: 适于游戏场景，Dplus场景
     
     /* Share init */
     [self setupUSharePlatforms];   // required: setting platforms on demand

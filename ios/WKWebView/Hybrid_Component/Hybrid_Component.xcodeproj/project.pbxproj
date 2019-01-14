@@ -64,6 +64,9 @@
 		83BE8F4C1F78F6D700969EA1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */; };
 		83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4D1F78F6DC00969EA1 /* libz.tbd */; };
 		83BE8F501F78F6E100969EA1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */; };
+		9D68BC252109C53C004B0A7E /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D68BC222109C53C004B0A7E /* UMCommonLog.framework */; };
+		9D68BC262109C53C004B0A7E /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D68BC232109C53C004B0A7E /* UMCommon.framework */; };
+		9D68BC272109C53C004B0A7E /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9D68BC242109C53C004B0A7E /* UMCommonLog.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +178,9 @@
 		83BE8F4B1F78F6D700969EA1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		83BE8F4D1F78F6DC00969EA1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		83BE8F4F1F78F6E100969EA1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9D68BC222109C53C004B0A7E /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
+		9D68BC232109C53C004B0A7E /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		9D68BC242109C53C004B0A7E /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,7 @@
 				63EC6F411F988EBD00255137 /* libSocialQQ.a in Frameworks */,
 				63EC6F391F988EBD00255137 /* UMPush.framework in Frameworks */,
 				633919C11F7B428400CFFCA0 /* libc++.tbd in Frameworks */,
+				9D68BC262109C53C004B0A7E /* UMCommon.framework in Frameworks */,
 				63EC6F3A1F988EBD00255137 /* libSocialEmail.a in Frameworks */,
 				63EC6F501F988EBD00255137 /* libUMSocialCloudShare.a in Frameworks */,
 				63EC6F4A1F988EBD00255137 /* TwitterCore.framework in Frameworks */,
@@ -209,6 +216,7 @@
 				63EC6F511F988EBD00255137 /* libUMSocialLog.a in Frameworks */,
 				633919BB1F7B426E00CFFCA0 /* SystemConfiguration.framework in Frameworks */,
 				63EC6F471F988EBD00255137 /* libSocialSMS.a in Frameworks */,
+				9D68BC252109C53C004B0A7E /* UMCommonLog.framework in Frameworks */,
 				63EC6F401F988EBD00255137 /* libSocialFacebook.a in Frameworks */,
 				83BE8F4E1F78F6DC00969EA1 /* libz.tbd in Frameworks */,
 				63EC6F491F988EBD00255137 /* libSocialTwitter.a in Frameworks */,
@@ -467,6 +475,9 @@
 		83BE8F3F1F78EF4600969EA1 /* UMComponents */ = {
 			isa = PBXGroup;
 			children = (
+				9D68BC232109C53C004B0A7E /* UMCommon.framework */,
+				9D68BC242109C53C004B0A7E /* UMCommonLog.bundle */,
+				9D68BC222109C53C004B0A7E /* UMCommonLog.framework */,
 				63EC6EF81F988EBD00255137 /* UMShare */,
 				63EC6EF51F988EBD00255137 /* UMAnalytics.framework */,
 				63EC6EF61F988EBD00255137 /* UMCommon.framework */,
@@ -622,6 +633,7 @@
 				63EC6E871F9888BB00255137 /* UMAnalytics.js in Resources */,
 				63EC6E811F98889100255137 /* push.html in Resources */,
 				63BA83981F988FCB00D3DE99 /* TwitterKitResources.bundle in Resources */,
+				9D68BC272109C53C004B0A7E /* UMCommonLog.bundle in Resources */,
 				63EC6E891F9888BB00255137 /* UMShare.js in Resources */,
 				63EC6F431F988EBD00255137 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				63EC6E831F98889100255137 /* index.html in Resources */,
@@ -827,7 +839,6 @@
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/QQ/QQSDK",
@@ -835,12 +846,11 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialUI",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Email",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/QQ",
@@ -870,7 +880,6 @@
 				DEVELOPMENT_TEAM = 486K7NX823;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/QQ/QQSDK",
@@ -878,12 +887,11 @@
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/UMSocialUI",
 				);
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Hybrid_Component/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../../WebView/Hybrid_Component/Hybrid_Component/UMComponents",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Email",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/Facebook",
 					"$(PROJECT_DIR)/Hybrid_Component/UMComponents/UMShare/SocialLibraries/QQ",

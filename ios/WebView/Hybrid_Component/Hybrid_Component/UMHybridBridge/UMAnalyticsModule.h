@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
 @interface UMAnalyticsModule : NSObject
 
-+ (BOOL)execute:(NSString *)parameters webView:(UIWebView *)webView;
++ (BOOL)execute:(NSString *)parameters webView:(id)webView;
 
 
 @end
