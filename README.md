@@ -2,10 +2,12 @@
 
 * 注意：集成基础组件库 2.0.0以下及统计SDK 8.0.0以下版本的用户，请参考release1.0.0分支中样例代码集成。
 
-首先需要说明，Hybrid下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://github.com/umeng/Hybrid_Component)下载。
-如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/React_Native_Compent)
+首先需要说明，Hybrid下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://developer.umeng.com/sdk)下载。
+
+如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/Hybrid_Component)
 
 ## Android
+
 ### 初始化
 
 将下载的jar放入app下的libs中：
@@ -13,6 +15,7 @@
 
 
 ![image.png](http://upload-images.jianshu.io/upload_images/1483670-9c93384e5a607551.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 首先需要拷贝common_android文件夹中的文件拷贝到你的工程中（路径为`com.umeng.hybrid`）：
 
 
@@ -27,7 +30,7 @@
 
 打开Application文件，修改如下：
 
-```
+``` java
  @Override
 	    public void onCreate() {
 	        super.onCreate();
@@ -40,7 +43,9 @@
 ```
 
 设置webview的WebChromeClient：
-```
+
+``` java
+
  class MyWebviewClient extends WebViewClient {
 
         @Override
@@ -69,14 +74,17 @@
             return false;
         }
     }
+    
 ```
  
- >`UMHBCommonSDK.init`接口一共五个参数，其中第一个参数为Context，第二个参数为友盟Appkey，第三个参数为channel，第四个参数为应用类型（手机或平板），第五个参数为push的secret（如果没有使用push，可以为空）。
+>`UMHBCommonSDK.init`接口一共五个参数，其中第一个参数为Context，第二个参数为友盟Appkey，第三个参数为channel，第四个参数为应用类型（手机或平板），第五个参数为push的secret（如果没有使用push，可以为空）。
 
 至此，所有的工程配置已经完成，接下来请按照各个组件的文档进行初始化。
 
 ## iOS
+
 ### 初始化
+
 + 将已下载的友盟SDK添加到项目
 
 ![](http://upload-images.jianshu.io/upload_images/1483670-1dc704e7b7c5dd42.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -101,10 +109,14 @@
 }
 ```
 
-## 接口说明
+# 接口说明
+
 # 统计
+
 ## Android
+
 ### 初始化
+
 首先需要找到Activity的生命周期，添加如下代码：
 
 ```
@@ -124,8 +136,8 @@
 并在`onCreat`中设置统计的场景，以及发送间隔：
 
 ```
-MobclickAgent.setSessionContinueMillis(1000);
-MobclickAgent.setScenarioType(this, EScenarioType.E_DUM_NORMAL);
+MobclickAgent.setSessionContinueMillis(1000*30);
+
 ```
 
 ## iOS
@@ -184,143 +196,135 @@ js部分首先需要使用`UMAnalytics.js`文件：
 ```
 
 ## 接口说明
+
 ### 自定义事件
+
 ```
 UMAnalyticsAgent.onEvent(eventId);
 
 UMAnalyticsAgent.onEventWithLable(eventId,eventLabel);
 
-UMAnalyticsAgent.onEventWithMap(eventId,eventData);
+UMAnalyticsAgent.onEventWithParameters(eventId,eventData);
 
-UMAnalyticsAgent.onEventWithMapAndCount(eventId,eventData,eventNum);
+UMAnalyticsAgent.onEventWithCounter(eventId,eventData,eventNum);
+
+UMAnalyticsAgent.onEventObject(eventId,eventData);
+
 ```
 * eventId 为当前统计的事件ID
 * eventLabel 为分类标签
 * eventData 为当前事件的属性和取值（键值对），不能为空，如：{name:"umeng",sex:"man"}
 * eventNum 用户每次触发的数值的分布情况，如事件持续时间、每次付款金额等
 
+### 页面手动采集接口
+
+```
+UMAnalyticsAgent.onPageStart(pageName);
+
+```
+
+* pageName 页面名称
+
+```
+UMAnalyticsAgent.onPageEnd(pageName);
+
+```
+
+* pageName 页面名称
+
+
 ### 账号的统计
+
 ```
 UMAnalyticsAgent.profileSignInWithPUID(puid);
+
 ```
+
 * puid 用户账号ID.长度小于64字节
 
 ```
+UMAnalyticsAgent.profileSignInWithPUIDWithProvider(provider, puid);
+
+```
+
+* provider 账号来源。 puid 用户账号ID.长度小于64字节
+
+
+```
 UMAnalyticsAgent.profileSignOff()；
-```
- * 账号登出时需调用此接口，调用之后不再发送账号相关内容
-
-### Dplus 统计
-#### track事件
-```
-UMAnalyticsAgent.track(eventName);
-
-UMAnalyticsAgent.trackWithMap(eventName, property);
-```
-* eventName 事件名称
-* property 事件的自定义属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
-
-#### 超级属性
-```
-UMAnalyticsAgent.registerSuperProperty(property);
-```
-* property 事件的超级属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
 
 ```
-UMAnalyticsAgent.clearSuperProperties();
-```
-* 清空所有超级属性
 
-#### 设置关注事件是否首次触发
+* 账号登出时需调用此接口，调用之后不再发送账号相关内容
+
+
+
+### 预置事件属性接口
+
+```
+UMAnalyticsAgent.registerPreProperties(property);
+```
+
+* 注册预置事件属性。property 事件的超级属性（可以包含多对“属性名-属性值”）,如：{name:"umeng",sex:"man"}
+
+```
+UMAnalyticsAgent.unregisterPreProperty(propertyName);
+```
+
+* 注销预置事件属性。propertyName，要注销的预置事件属性名。
+
+```
+UMAnalyticsAgent.getPreProperties(context);
+```
+
+* 获取预置事件属性, 返回包含所有预置事件属性的JSONObject。
+
+``` 
+UMAnalyticsAgent.clearPreProperties();
+```
+
+* 清空全部预置事件属性。
+
+
+### 设置关注事件是否首次触发
+
 ```
 UMAnalyticsAgent.setFirstLaunchEvent(eventList);
 ```
+
 * eventList 只关注eventList前五个合法eventID.只要已经保存五个,此接口无效,如：["list1","list2","list3"]
-
-### 游戏统计
-
-#### 关卡
-```
-UMAnalyticsAgent.startLevel(level); //进入关卡
-
-UMAnalyticsAgent.failLevel(level); //通过关卡
-
-UMAnalyticsAgent.finishLevel(level); //完成关卡
-```
-* level 关卡ID
-
-#### 充值
-```
-UMAnalyticsAgent.pay(cash, source, price);
-
-UMAnalyticsAgent.payWithItem(cash, source, item, amount, price);
-```
-* cash 真实币数量，>=0的数,最多只保存小数点后2位
-* source 支付渠道，1 ~ 99的整数, 其中1..20 是预定义含义,其余21-99需要在网站设置。
-* coin 虚拟币数量，大于等于0的整数, 最多只保存小数点后2位
-* item 道具ID
-* amount 道具数量，大于0的整数
-* price 虚拟币数量
-
-#### 购买
-```
-UMAnalyticsAgent.buy(item, amount, price);
-```
-* item 道具ID
-* amount 道具数量,大于0的整数
-* price 道具单价
-
-#### 消耗
-```
-UMAnalyticsAgent.use(item, amount, price);
-```
-* item 道具ID
-* amount 道具数量,大于0的整数
-* price 道具单价
-
-#### 额外奖励
-```
-UMAnalyticsAgent.bonus(coin, source); //赠送金币
-
-UMAnalyticsAgent.bonusWithItem(item, amount, price, source); //赠送道具
-```
- * coin 虚拟币数量，大于0的整数, 最多只保存小数点后2位
- * source 奖励渠道，取值在 1~10 之间。“1”已经被预先定义为“系统奖励”，2~10 需要在网站设置含义
- * item 道具ID，非空字符串
- * amount 道具数量，大于0的整数
- * price 道具单价
-
-#### 交易兑换货币
-```
-UMAnalyticsAgent.exchange(orderId, currencyAmount, currencyType, virtualAmount, channel);
-```
-* currencyAmount 现金或等价物总额
-* currencyType 为ISO4217定义的3位字母代码，如CNY,USD等（如使用其它自定义等价物作为现金，可使用ISO4217中未定义的3位字母组合传入货币类型）
-* virtualAmount 虚拟币数量
-* channel 支付渠道
-* orderId 交易订单ID
 
 
 # 推送
+
 ## Android
+
 ### 初始化
+
 首先，Android push需要让Android app依赖我们提供的push module（请替换最新的umeng-push-3.3.1.jar），再根据文档进行相应的初始化。
 
 Push SDK 的平台配置与单独 Native 项目集成相同，请参考 [接入Push SDK](http://dev.umeng.com/sdk_integate/android_sdk/android_push_doc#1) 以及 [初始化设置部分](http://dev.umeng.com/sdk_integate/android_sdk/android_push_doc#2_1)
 
 
 ## iOS
+
 ### 初始化
+
 Push SDK 的平台配置与单独 Native 项目集成相同，请参考 [接入Push SDK](http://dev.umeng.com/sdk_integate/ios-integrate-guide/push#1) 以及 [初始化设置部分](http://dev.umeng.com/sdk_integate/ios-integrate-guide/push#1)
+
 ## 接口说明
+
 首先需要使用`UMPush`文件：
 
 ### 添加tag
+
 ```
 UMPushAgent.addTag('tag','remaincallback')
 ```
+
 * tag 此参数为tag
 * callback 第一个参数code为错误码，当为200时标记成功。第二个参数为remain值：
+
 ```
 function remaincallback(stcode,remain) {
 	alert('' +stcode+'   '+remain);
@@ -330,11 +334,14 @@ function remaincallback(stcode,remain) {
 
 
 ### 删除tag
+
 ```
  UMPushAgent.delTag('tag','remaincallback')
 ```
+
 * tag 此参数为tag
 * callback 第一个参数code为错误码，当为200时标记成功。第二个参数为remain值：
+
 ```
 function remaincallback(stcode,remain) {
 	alert('' +stcode+'   '+remain);
@@ -344,11 +351,13 @@ function remaincallback(stcode,remain) {
 
 
 ### 展示tag
+
 ```
 UMPushAgent.listTag('listcallback')
 ```
 
 * callback 为一个数组，标记为所有tag：
+
 ```
 	function listcallback(taglist) {
 	alert(taglist);
@@ -356,12 +365,16 @@ UMPushAgent.listTag('listcallback')
 ```
 
 ### 添加Alias
+
 ```
 UMPushAgent.addAlias('alias','type','aliascallback')
 ```
+
 * alias 此参数为alias
 * type  此参数为alias type
 * aliascallback 为回调方法：
+
+
 ```
 function aliascallback(stcode) {
 	alert('' +stcode+'   ');
@@ -369,12 +382,15 @@ function aliascallback(stcode) {
 ```
 
 ### 添加额外Alias
+
 ```
 UMPushAgent.setAlias('alias','type','aliascallback')
 ```
+
 * alias 此参数为alias
 * type  此参数为alias type
 * aliascallback 为回调方法：
+
 ```
 function aliascallback(stcode) {
 	alert('' +stcode+'   ');
@@ -382,12 +398,15 @@ function aliascallback(stcode) {
 ```
 
 ### 删除Alias
+
 ```
 UMPushAgent.delAlias('alias','type','aliascallback')
 ```
+
 * alias 此参数为alias
 * type  此参数为alias type
 * aliascallback 为回调方法：
+
 ```
 function aliascallback(stcode) {
 	alert('' +stcode+'   ');
