@@ -1,4 +1,7 @@
 # 工程配置
+
+* 注意：集成基础组件库 2.0.0以下及统计SDK 8.0.0以下版本的用户，请参考release1.0.0分支中样例代码集成。
+
 首先需要说明，Hybrid下载的只是桥接文件，不含最新版本的jar，对应组件的jar请去[下载中心](https://github.com/umeng/Hybrid_Component)下载。
 如果对于文档仍有疑问的，请参照我们在github上的[demo](https://github.com/umeng/React_Native_Compent)
 
